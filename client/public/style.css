@@ -1,0 +1,166 @@
+body{
+  background-color: #c9cbc9!important;
+background-image: url("https://www.transparenttextures.com/patterns/arches.png")!important;
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.search{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+.navbar{
+    padding: 1.5rem 2rem!important;
+}
+
+.photoup{
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    border-color:#5cb85c!important ;
+    outline: #5cb85c;
+    box-shadow: 1px 1px 4px 1px  #5cb85c;
+}
+.photoup:hover{
+padding: 5px;
+}
+.img{
+    margin: 20px 5px;
+}
+.first .img:hover{
+    height: 4vh;
+}
+
+.grids{
+    display: flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content: center;
+    margin: 5px;
+}
+.onegrid{
+    padding: 3px;
+    border-radius: 40px!important;
+     border: #000000;
+     background:black!important;
+    margin: 35px;
+
+    position: relative;
+    width: 25vw;
+}
+
+.onegrid img{
+    height: 100%;
+  width: 100%;
+  border-radius: 30px;
+} 
+
+
+.uplo{
+
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    border-color:#5cb85c!important ;
+    outline: #5cb85c;
+    
+}
+
+.model{
+    box-shadow: 1px 1px 13px 2px grey;
+}
+
+
+.overlay {
+    position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px!important;
+    border-radius: 40px!important;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+
+  background-color: rgba(0, 0, 0, 0.561);
+  }
+  
+  .onegrid:hover .overlay {
+    opacity: 1;
+  }
+
+  .label{
+    font-size: 4.5vh;
+    font-family: 'Markazi Text', serif!important;
+    color:rgb(228, 222, 222);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-left: 5px;
+  }
+  .del{
+    position: absolute;
+    top: 77%;
+    left: 82%;
+    color: #f20909b5;
+    font-size: 5.5vh;
+  }
+  .del:hover{
+      color: red;
+  }
+
+
+
+  /* .onegrid:hover .overlay{
+    opacity: 1;
+  } */
+
+  @media only screen and (max-width: 1000px){
+    .onegrid {
+        width: 30vw;
+        padding: 2px;
+        border-radius: 30px!important;
+         border: #000000;
+         background:black!important;
+    } 
+    .label{
+        font-size: 2.5vh;
+    }
+    .del{
+        position: absolute;
+        top: 66%;
+        left: 80%;
+        color: #f20909b5;
+        font-size: 5.5vh;
+      }
+}
+
+@media only screen and (max-width: 600px){
+    .onegrid {
+        width: 70vw;
+        padding: 2px;
+        border-radius: 30px!important;
+         border: #000000;
+         background:black!important;
+    } 
+    .search{
+      width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 400px){
+  .del {
+    position: absolute;
+    top: 60%;
+    left: 74%;
+    color: #f20909b5;
+    font-size: 5.5vh;
+}
+}
