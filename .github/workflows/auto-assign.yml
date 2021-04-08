@@ -12,7 +12,7 @@ jobs:
     # or a on a schedule
     if: >
       (github.event_name == 'issue_comment' && startsWith(github.event.comment.body, '/assign')) ||
-      github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Assign the user or unassign stale assignments
