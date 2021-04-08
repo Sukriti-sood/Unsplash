@@ -20,3 +20,4 @@ jobs:
         with:
           assigned_label: Assigned
           stale_assignment_label: Open
+          assigned_comment: ​This issue [has been assigned]({{ comment.html_url }}) to {{ comment.user.login }}!
