@@ -21,7 +21,6 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
       uses: peter-evans/create-or-update-comment@v1
       with:
-        issue-number: ${{tojson(github.event.number)}}
         body: |
             @${{ github.actor }} your PR got merged.            
     - name: Create comment for Opening PR
