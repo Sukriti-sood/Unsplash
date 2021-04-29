@@ -27,7 +27,7 @@ InfoRouter.route("/")
   
   
 })
-.get((req,res,next)=>{
+.get((req,res,next)=>{ // Returns all images
     Info.find({})
     .then((infos)=>{
         res.statusCode=200;
