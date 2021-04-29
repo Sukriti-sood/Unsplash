@@ -16,11 +16,11 @@ jobs:
       with:
         issue-number: ${{tojson(github.event.issue.number)}}
         body: |
-            @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
+            @${{ github.actor }} Thanks for opening the Issues, This Will definitely Imporove our Project.
     - name: Create comment for PR
       if: github.event_name == 'pull_request_target'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
+            @${{ github.actor }} Thank you for Opening  pull request. We will soon be getting back to you. Your patience will be greatly appreciated!Thanks! 🥳.
