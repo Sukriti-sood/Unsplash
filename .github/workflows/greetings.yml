@@ -4,7 +4,7 @@ on:
   issues:
     types: [opened]
   pull_request_target:
-    types: [opened]
+    types: [opened,closed]
 
 jobs:
   greeting:
@@ -18,10 +18,17 @@ jobs:
         body: |
             @${{ github.actor }} Thanks for opening the Issues, This Will definitely Imporove our Project Please read [Contrinutions Guidlines](https://github.com/Sukriti-sood/Unsplash/edit/main/.github/workflows/greetings.yml).
     - name: Create comment for PR
-      if: github.event_name == 'pull_request_target'
+      if: github.event_name == 'pull_request_target'&& github.event.action == 'opened'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
             @${{ github.actor }} Thank you for Opening  pull request. We will soon be getting back to you. Your patience will be greatly appreciated!Thanks! 🥳.
+    - name: Create comment for Merging PR
+      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{tojson(github.event.number)}}
+        body: |
+            @${{ github.event.pull_request.user.login }} your PR got merged.    
 
