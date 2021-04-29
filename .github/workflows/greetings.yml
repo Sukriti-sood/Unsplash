@@ -18,7 +18,7 @@ jobs:
         body: |
             @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
     - name: Create comment for PR
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request_target'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
