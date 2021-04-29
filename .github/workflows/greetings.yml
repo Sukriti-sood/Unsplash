@@ -1,3 +1,5 @@
+name: Greetings
+
 on:
   issues:
     types: [opened]
@@ -9,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create comment for issue
-      if: github.event_name =='issues' 
+      if: github.event_name =='issues'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.issue.number)}}
         body: |
-            @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
-    - name: Create comment for PR
-      if: github.event_name == 'pull_request'
+            @${{ github.actor }} You just created a issue.          
+    - name: Create comment for Opening PR
+      if: github.event_name == 'pull_request' && github.event.action == 'opened' 
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
+            @${{ github.actor }} you just opende a PR
