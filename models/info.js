@@ -1,6 +1,8 @@
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 
+// Schema of a Image Post.
+
 const imageinfoSchema=new Schema({
     label:{
         type:String,
