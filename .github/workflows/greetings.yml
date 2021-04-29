@@ -8,6 +8,12 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
+    - name: Create comment for issue
+      if: github.event_name =='issues' uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{tojson(github.event.issue.number)}}
+        body: |
+            @${{ github.actor }} just so you are aware we have a dedicated Working Group for the network.
     - name: Create comment for PR
       if: github.event_name == 'pull_request'
       uses: peter-evans/create-or-update-comment@v1
