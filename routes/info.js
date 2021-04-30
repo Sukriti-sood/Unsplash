@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Info=require("../models/info");
 const InfoRouter=express.Router();
 InfoRouter.use(bodyParser.json());
-
+// Adds new Image Post to database
 InfoRouter.route("/")
 .post((req,res,next)=>{
     console.log(req.body);
