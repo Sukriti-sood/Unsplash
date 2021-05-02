@@ -16,7 +16,7 @@ jobs:
       with:
         issue-number: ${{tojson(github.event.issue.number)}}
         body: |
-            @${{ github.actor }} Thanks for opening the Issues, This Will definitely Imporove our Project Please read [Contrinutions Guidlines](https://github.com/Sukriti-sood/Unsplash/edit/main/.github/workflows/greetings.yml).
+            Hi 😄, @${{ github.actor }} thanks for creating your first issue at makemathseasy, do read and follow the [Code of Conduct](https://github.com/sairish2001/makesmatheasy/blob/main/CODE_OF_CONDUCT.md) and the [Contribution Guidelines](https://github.com/sairish2001/makesmatheasy/blob/main/CONTRIBUTING.md) while contributing.
     - name: Create comment for PR
       if: github.event_name == 'pull_request_target'&& github.event.action == 'opened'
       uses: peter-evans/create-or-update-comment@v1
@@ -30,5 +30,7 @@ jobs:
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            @${{ github.event.pull_request.user.login }} your PR got merged.    
+            Yaay, congratulations @${{ github.event.pull_request.user.login }} on getting your pull request merged! 🥳 🎉.
+            Thanks for the contribution! 😇
+            PS Don't hesitate to look at other issues and create more pull requests!.    
 
