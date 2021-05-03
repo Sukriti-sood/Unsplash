@@ -1,1 +1,1 @@
-## CLient Side of Unsplash
+## Client Side of Unsplash
