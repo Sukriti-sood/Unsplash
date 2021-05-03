@@ -4,7 +4,7 @@ on:
   issues:
     types: [opened]
   pull_request_target:
-    types: [opened,closed]
+    types: [opened]
 
 jobs:
   greeting:
@@ -16,9 +16,9 @@ jobs:
       with:
         issue-number: ${{tojson(github.event.issue.number)}}
         body: |
-            Hi 😄, @${{ github.actor }} thanks for creating your first issue at makemathseasy, do read and follow the [Code of Conduct](https://github.com/sairish2001/makesmatheasy/blob/main/CODE_OF_CONDUCT.md) and the [Contribution Guidelines](https://github.com/sairish2001/makesmatheasy/blob/main/CONTRIBUTING.md) while contributing.
+            @${{ github.actor }} Thanks for opening the New Issue, This Will definitely Imporove our Project.
     - name: Create comment for PR
-      if: github.event_name == 'pull_request_target'&& github.event.action == 'opened'
+      if: github.event_name == 'pull_request_target'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
@@ -30,7 +30,4 @@ jobs:
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            Yaay, congratulations @${{ github.event.pull_request.user.login }} on getting your pull request merged! 🥳 🎉.
-            Thanks for the contribution! 😇
-            PS Don't hesitate to look at other issues and create more pull requests!.    
-
+            @${{ github.event.pull_request.user.login }} Hurray , your PR got merged 🥳.            
