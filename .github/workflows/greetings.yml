@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create comment for issue
-      if: github.event_name =='issues' 
+      if: github.event_name =='issues' && github.event.action == 'opened'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.issue.number)}}
