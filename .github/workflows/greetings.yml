@@ -1,8 +1,6 @@
-name: Greetings for All
+name: Auto message on PRs
 
 on:
-  issues:
-    types: [opened]
   pull_request_target:
     types: [opened,closed]
 
@@ -10,27 +8,18 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
-    - name: Create comment for issue
-      if: github.event_name =='issues'
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        issue-number: ${{tojson(github.event.issue.number)}}
-        body: |
-            @${{ github.actor }} Thanks for opening the New Issue, This Will definitely Imporove our Project.
-            **Use `/assign` to self assign this issue**.
-
-
     - name: Create comment for PR
       if: github.event_name == 'pull_request_target' && github.event.action == 'opened'
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            @${{ github.actor }} Thank you for Opening  pull request. We will soon get back to you. Your patience will be greatly appreciated!Thanks! 🥳.
+            @${{ github.actor }} Thank you for Opening  pull request. We will get back to you as soon as possible. Your patience is greatly appreciated! Thanks! 🥳.
+            PS: Please double check that you linked the corresponding issue.
     - name: Create comment for Merging PR
       if: github.event_name == 'pull_request_target' && github.event.action == 'closed' && github.event.pull_request.merged == true
       uses: peter-evans/create-or-update-comment@v1
       with:
         issue-number: ${{tojson(github.event.number)}}
         body: |
-            @${{ github.event.pull_request.user.login }} Hurray , your PR got merged 🥳.            
+            @${{ github.event.pull_request.user.login }} Hurray, your PR got merged 🥳. Thanks a bunch. Feel free to take another Issue.           
