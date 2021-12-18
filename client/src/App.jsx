@@ -9,8 +9,9 @@ const[dataarray,setdataarray]=useState([]);
 const[label,setlabel]=useState(null);
 const[imageurl,seturl]=useState(null);
 const[searchtext,setsearchtext]=useState("");
+
 useEffect(()=>{
-  axios.get("http://localhost:5000/info/search/"+searchtext)
+  axios.get("http://localhost:5000/info?searchexp="+searchtext)
   .then((respons)=>{
     setdataarray(respons.data);
   })
@@ -22,7 +23,7 @@ useEffect(()=>{
 
 function handledelete(path)
 {
-  axios.delete("http://localhost:5000/info/delete/"+path)
+  axios.delete("http://localhost:5000/info/"+path)
   .then((resp)=>{
     setdataarray(resp.data);
   })
