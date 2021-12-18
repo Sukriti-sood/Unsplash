@@ -12,7 +12,7 @@ function GridCard(props)
       <img src={props.imgsrc} alt="images"/>
       <div className="overlay">
       <span className="label">{props.label}</span>
-      <span className="del" onClick={ondelete}><i class="fa fa-trash" aria-hidden="true"></i></span>
+      <span className="del" onClick={ondelete}><i className="fa fa-trash" aria-hidden="true"></i></span>
      </div>
     </div>
         </>

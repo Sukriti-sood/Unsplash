@@ -11,7 +11,7 @@ const[imageurl,seturl]=useState(null);
 const[searchtext,setsearchtext]=useState("");
 
 useEffect(()=>{
-  axios.get("http://localhost:5000/info?searchexp="+searchtext)
+  axios.get("/info?searchexp="+searchtext)
   .then((respons)=>{
     setdataarray(respons.data);
   })
@@ -23,7 +23,7 @@ useEffect(()=>{
 
 function handledelete(path)
 {
-  axios.delete("http://localhost:5000/info/"+path)
+  axios.delete("/info/"+path)
   .then((resp)=>{
     setdataarray(resp.data);
   })
@@ -53,7 +53,7 @@ function handlesearchChange(e)
 
 function handleupload(e){
   e.preventDefault();
-axios.post("http://localhost:5000/info", {
+axios.post("/info", {
   label:label,
   imageurl:imageurl
 })
@@ -72,15 +72,15 @@ toggleModal();
     <div className="App">
     <div className="navbar">
     <div className="first">
-      <img class="img" src="../my_unsplash_logo.svg" alt="imagesrc"></img>
-      <input type="text" className="search" onChange={handlesearchChange} placeholder="&#xF002; Search" style={{"font-family":"Arial, FontAwesome"}} />
+      <img className="img" src="../my_unsplash_logo.svg" alt="imagesrc"></img>
+      <input type="text" className="search" onChange={handlesearchChange} placeholder="&#xF002; Search" style={{"fontfamily":"Arial, FontAwesome"}} />
       </div>
       <button onClick={toggleModal} className="photoup">Add a Photo</button>
     </div>
     <div className="grids">
       {
         dataarray.map((data)=>{
-          return(<GridCard imgsrc={data.imageurl} label={data.label} onDelete={handledelete} id={data._id}/>)
+          return(<GridCard key={data._id} imgsrc={data.imageurl} label={data.label} onDelete={handledelete} id={data._id}/>)
         })
       }
  
