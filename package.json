@@ -3,9 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "server": "node ./bin/www",
-        "client": "npm start --prefix client",
-        "start": "concurrently \"npm run server\" \"npm run client\""
+        "start": "node ./bin/www",
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
     "dependencies": {
         "axios": "^0.21.0",
@@ -23,5 +22,8 @@
     },
     "devDependencies": {
         "concurrently": "^5.3.0"
+    },
+    "engines": {
+        "node": "16.13.0"
     }
 }
